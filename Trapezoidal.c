@@ -7,7 +7,7 @@
  * b : UPPER LIMIT OF INTIGRATION
  * h : FIXED DIFFERENCE IN INTERVAL (LIMIT -> 0)
  * n : FIXED NUMBER OF INTERVAL (LIMIT --> infinity)
-*/
+ */
 
 #include <stdio.h>
 #include <math.h>
@@ -17,13 +17,13 @@
 // Function calculating Area by Trapezoidal Rule
 static double trap(double f(double), const double a, const double b)
 {
-	if(a >= b)
+	if (a >= b)
 		return 0.0;
 	const double h = 0.01;
 	const unsigned long long n = ceil((b - a) / h);
 	double area = f(a) + f(b), t = a;
 	unsigned long long i = 1;
-	while(i < n){
+	while (i < n){
 			t += h;
 			if(t >= b)
 					break;

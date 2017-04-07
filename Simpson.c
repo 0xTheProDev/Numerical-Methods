@@ -7,7 +7,7 @@
  * b : UPPER LIMIT OF INTIGRATION
  * h : FIXED DIFFERENCE IN INTERVAL (LIMIT -> 0)
  * n : FIXED NUMBER OF INTERVAL (LIMIT --> infinity)
-*/
+ */
 
 #include <stdio.h>
 #include <math.h>
@@ -18,6 +18,7 @@ typedef double F(double);
 
 double simpson(double, double, F);
 
+// User-defined Function
 double func(double a){
 	return sqrt(sin(a));
 }
@@ -29,7 +30,10 @@ int main(void){
 	return 0;
 }
 
+// Function calculating Area by SIMPSON 1/3RD RULE
 double simpson(const double a, const double b, F f){
+	if (a >= b)
+		return 0.0;
 	const int n = 100;
 	const double h = (b - a) / n;
 	double sum = f(a) + f(b);
